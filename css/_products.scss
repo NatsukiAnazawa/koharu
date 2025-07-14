@@ -1,0 +1,61 @@
+/*-------------------------------------------
+productsページ / products.html
+-------------------------------------------*/
+@use 'setting' as s;
+/* ここから記述します。 */
+
+.sectionTitle {
+  @include s.mainTitle;
+}
+.sectionTitle::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: s.$colorWhite;
+  margin-right: 24px;
+
+  @include s.mq(tab) {
+    width: 32px;
+    margin-right: 16px;
+}
+}
+.products_grid {
+  display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 35px;
+	margin-bottom: 120px;
+
+  @include s.mq(tab) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 8px;
+    margin-bottom: 80px;
+  }
+}
+.products_gridImg {
+  width: 100%;
+  margin-bottom: 4px;
+}
+.products_gridText {
+  color: s.$colorWhite;
+  font-size: 16px;
+
+  @include s.mq(tab) {
+    font-size: 14px;
+}
+  
+}
+
+// 人気の商品
+.popular_items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  margin-bottom: 120px;
+
+  @include s.mq(tab) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 28px 8px;
+    margin-bottom: 80px;
+  }
+}

@@ -1,0 +1,195 @@
+/*-------------------------------------------
+共通クラス
+-------------------------------------------*/
+@use 'setting' as s;
+
+body {
+    font-family: "Hiragino Mincho Pro", "Hiragino Mincho ProN", "Yu Mincho", YuMincho, HGS明朝E, メイリオ, Meiryo, serif;
+    letter-spacing: .1em;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+}
+
+a:hover {
+	opacity: 0.85;
+	transition: 0.3s;
+}
+
+.body {
+	background: s.$colorBlack;
+}
+
+.main {
+	position: relative;
+}
+
+/*-------------------------------------------
+共通パーツの指定
+-------------------------------------------*/
+.u-wrapper {
+	width: 100%;
+	max-width: 1360px;
+	margin: 0 auto;
+	padding: 0 40px;
+
+	@include s.mq(tab) {
+		padding: 0px 15px;
+	}
+}
+/* ここから記述します。 */
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 10;
+}
+.header_logo {
+	width: 100%;
+	max-width: 160px;
+}
+
+// ハンバーガーメニューオープン　＞　メニュー
+.header_menuItems {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: -100%;
+	width: 300px;
+	height: 100%;
+	padding: 60px 25px;
+	background-color: s.$colorWhite;
+	z-index: 100;
+	opacity: 0;
+	z-index: 20;
+	transition: all	0.5s;
+}	
+.header_menuLogo {
+	width: 100%;
+	max-width: 160px;
+	margin-bottom: 24px;
+}
+.header_menuList {
+	margin-bottom: 20px;
+}
+.header_menuLink {
+	color: s.$colorBlack;
+}
+
+// ハンバーガーメニュー：ボタン
+.header_menuBtn{
+	width: 30px;
+	height: 20px;
+	position: relative;
+	cursor: pointer;
+	z-index: 20;
+}
+// ハンバーガーメニュー：三本ライン
+.header_menuBtn span{
+		display: block;
+		background-color: s.$colorWhite;
+		width: 30px;
+		height: 2px;
+		position: absolute;
+		transition: all 0.5s;
+
+		&:nth-child(1) {
+			top: 2px;
+		}
+		&:nth-child(2) {
+			top: 12px;
+		}
+		&:nth-child(3){
+			top: 22px;
+		}
+	}
+
+	// ハンバーガーボタンが×の時
+	.active {
+		&.header_menuItems {
+			left: 0;
+			opacity: 1;
+		}
+		&.header_menuBtn span:nth-child(1) {
+			transform: translateY(10px) rotate(-45deg);
+		}
+		&.header_menuBtn span:nth-child(2) {
+			opacity: 0;
+		}
+		&.header_menuBtn span:nth-child(3) {
+			transform: translateY(-10px) rotate(45deg);
+		}
+	}
+	
+	/*ハンバーガーメニュークリック時、後ろの黒い背景*/
+	.header_mask {
+		display: none;
+		transition: all 0.5s;
+	}
+	.active {
+		&.header_mask {
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: #000;
+			opacity: 0.8;
+			z-index: 10;
+			cursor: pointer;
+		}
+	}
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+#footer {
+	background-color: s.$colorWhite;
+	color: s.$colorBlack;
+	height: 160px;
+	display: flex;
+
+	@include s.mq(tab) {
+		height: auto;
+		padding: 48px 0px;
+	}
+}
+.footer_inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@include s.mq(tab) {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+.footer_logo {
+	width: 100%;
+	max-width: 160px;
+	margin-bottom: 24px;
+}
+.footer_navItems {
+	display: flex;
+	justify-content: left;
+	gap: 28px;
+
+	@include s.mq(tab) {
+		flex-direction: column;
+		align-items: center;
+		row-gap: 24px;
+		margin-bottom: 40px;
+	}
+}
+.footer_copyright {
+	font-size: 14px;
+}

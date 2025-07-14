@@ -1,0 +1,88 @@
+/*-------------------------------------------
+itemページ / item*.html
+-------------------------------------------*/
+@use 'setting' as s;
+/* ここから記述します。 */
+
+.item_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  margin: 32px auto 120px;
+
+  @include s.mq(tab) {
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+}
+.itemSectionTitle {
+  font-size: 36px;
+  color: s.$colorWhite;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+
+  @include s.mq(tab) {
+    font-size: 24px;
+    margin: 0px auto 16px;
+}
+}
+
+.item_price {
+  color: s.$colorWhite;
+  font-size: 24px;
+  margin-bottom: 32px;
+
+  @include s.mq(tab) {
+    font-size: 20px;
+}
+}
+.item_smallText {
+  color: s.$colorWhite;
+  font-size: 15px;
+  letter-spacing: 1.5;
+  margin-bottom: 4px;
+}
+
+// input
+.item_number {
+  width: 160px;
+  height: 40px;
+  background-color: s.$colorWhite;
+  margin-bottom: 12px;
+  padding: 6px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+.item_link {
+  display: flex;
+  width: 240px;
+  height: 50px;
+  color: s.$colorWhite;
+  background-color: #BA0808;
+  padding: 16px;
+  margin-bottom: 48px;
+  justify-content: center;
+  align-items: center;
+}
+
+/*お買い物かごicon*/
+.fa-solid {
+  margin-left: 14px;
+}
+.fa-cart-shopping::before {
+  content: "\f07a";
+}
+
+/*item description*/
+.item_text {
+  color: s.$colorWhite;
+  line-height: 1.9;
+
+  &-marginBottom {
+    margin-bottom: 16px;
+  }
+}

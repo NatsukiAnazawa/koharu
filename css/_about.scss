@@ -1,0 +1,57 @@
+/*-------------------------------------------
+aboutページ / about.html
+-------------------------------------------*/
+@use 'setting' as s;
+/* ここから記述します。 */
+
+s.sectionTitle {
+  @include s.mainTitle;
+}
+.sectionTitle::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: s.$colorWhite;
+  margin-right: 24px;
+
+  @include s.mq(tab) {
+    width: 32px;
+    margin-right: 16px;
+}
+}
+.about_items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 120px;
+
+  @include s.mq(tab) {
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+}
+.about_item {
+  flex: 1;
+}
+.about_img {
+  max-width: 100%;
+}
+.about_textTitle {
+  font-size: 28px;
+  color: s.$colorWhite;
+  margin-bottom: 28px;
+
+  @include s.mq(tab) {
+    font-size: 22px;
+}
+}
+.about_text {
+  color: s.$colorWhite;
+  line-height: 1.9;
+  
+  &:first-of-type {
+    margin-bottom: 32px;
+  }
+}

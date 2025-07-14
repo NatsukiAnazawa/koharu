@@ -1,0 +1,79 @@
+/*-------------------------------------------
+companyページ / company.html
+-------------------------------------------*/
+@use 'setting' as s;
+/* ここから記述します。 */
+
+s.sectionTitle {
+  @include s.mainTitle;
+}
+.sectionTitle::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: s.$colorWhite;
+  margin-right: 24px;
+
+  @include s.mq(tab) {
+    width: 32px;
+    margin-right: 16px;
+}
+}
+.company_container {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 120px;
+
+  @include s.mq(tab) {
+    flex-direction: column;
+    margin-bottom: 80px;
+  }
+}
+.company_item {
+  flex: 1;
+}
+.company_map {
+  width: 100%;
+  position: relative;
+  padding-top: 50%;
+
+  @include s.mq(tab) {
+    padding-top: 75%;
+  }
+}
+.company_iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.company_dl {
+  color: s.$colorWhite;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include s.mq(tab) {
+    font-size: 14px;
+}
+}
+.company_dt {
+  width: 30%;
+  padding: 20px 10px;
+  border-bottom: 1px solid s.$colorWhite;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+.company_dd {
+  width: 70%;
+  padding: 20px 10px;
+  border-bottom: 1px solid s.$colorWhite;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
