@@ -240,62 +240,51 @@ TOP gridレイアウト
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 35px;
-  grid-template-areas: "A B C D" "A E F G";
   margin-bottom: 80px;
+  grid-auto-flow: dense;
 }
 @media screen and (max-width: 900px) {
   .top_grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "A A" "B C" "D E" "F G";
     gap: 28px 8px;
   }
 }
 
+.grid_item {
+  min-width: 0;
+}
 .grid_item:nth-child(1) {
-  grid-area: A;
+  grid-row: span 2;
+}
+@media screen and (max-width: 900px) {
+  .grid_item:nth-child(1) {
+    grid-row: auto;
+  }
 }
 .grid_item:nth-child(1) .grid_img {
-  height: calc(100% - 52px);
+  height: calc(100% - 50.85px);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: right;
-     object-position: right;
+  -o-object-position: center;
+     object-position: center;
 }
 @media screen and (max-width: 900px) {
   .grid_item:nth-child(1) .grid_img {
     height: auto;
   }
 }
-.grid_item:nth-child(2) {
-  grid-area: B;
-}
-.grid_item:nth-child(3) {
-  grid-area: C;
-}
-.grid_item:nth-child(4) {
-  grid-area: D;
-}
-.grid_item:nth-child(5) {
-  grid-area: E;
-}
-.grid_item:nth-child(6) {
-  grid-area: F;
-}
-.grid_item:nth-child(7) {
-  grid-area: G;
-}
-
-.grid_img {
+.grid_item .grid_img {
+  width: 100%;
+  height: auto;
   vertical-align: top;
   margin-bottom: 4px;
 }
-
-.grid_text {
+.grid_item .grid_text {
   font-size: 16px;
   color: #fff;
 }
 @media screen and (max-width: 900px) {
-  .grid_text {
+  .grid_item .grid_text {
     font-size: 14px;
   }
 }
